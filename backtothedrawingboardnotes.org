@@ -12,3 +12,5 @@
 -- About.js: This will be an informative page that contains just a few headers and paragraphs that describe the web app itself as more of a 'welcome' page
 -- Upload.js: This page will contain a related form that will allow the user to upload their given images to the app, which will NOT be persistent but just remain for that specific session
 -- Board.js: This will be the primary section of the site where the user can view images, rotate images upon a hover icon, tag them, and favorite them. There will be a filter for favorites as well near the top of the page.
+** Routing
+<2022-07-23 Sat 19:58>: I need to adjust the routing to add routes in the 'App' component to switch given routes depending on user clicks as well
