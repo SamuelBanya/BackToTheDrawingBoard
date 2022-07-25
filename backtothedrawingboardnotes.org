@@ -1,0 +1,82 @@
+* Phase 2 Project
+** Title
+<2022-07-23 Sat 18:19>: The title that I have decided upon is the following:
+- 'BackToTheDrawingBoard'
+** Ideas
+<2022-07-23 Sat 18:19>: Here are some major ideas I have for this project:
+- This will be a drawing board web app where you can upload images, position them, and resize them
+- You can then add tags to images that appear upon a 'hover' event
+** Layout
+<2022-07-23 Sat 18:20>: The overall layout and component hierarchy will be as follows:
+- App.js: This will load all of the components
+-- About.js: This will be an informative page that contains just a few headers and paragraphs that describe the web app itself as more of a 'welcome' page
+-- Upload.js: This page will contain a related form that will allow the user to upload their given images to the app, which will NOT be persistent but just remain for that specific session
+-- Board.js: This will be the primary section of the site where the user can view images, rotate images upon a hover icon, tag them, and favorite them. There will be a filter for favorites as well near the top of the page.
+** Routing
+<2022-07-23 Sat 19:58>: I need to adjust the routing to add routes in the 'App' component to switch given routes depending on user clicks as well
+
+<2022-07-25 Mon 18:16>: This will include a 'NavBar' component that will display the following links:
+- About
+- Upload
+- Board
+** How I Created The Foundation For The App
+<2022-07-25 Mon 18:20>: I forgot in my initial steps to create the basic 'create-react-app' as this is responsible for handling a lot of the backend for the necessary React app, so I moved over my files to a temporary directory, and ran this command accordingly:
+#+begin_src bash
+npx create-react-app react-gh
+#+end_src
+
+I then removed all the contents except for 'App.js' and 'index.js'.
+
+I then replaced the contents of 'App.js' with these contents:
+#+begin_src bash
+function App() {
+ return (
+ <div>
+ <h2>Github Pages</h2>
+ <h3>Deploying React to Github</h3>
+ </div>
+ );
+}
+export default App;
+#+end_src
+
+I then created the 'About.js' component:
+#+begin_src js
+const About = () => {
+ return (
+ <div>
+ <Link to="/">Home</Link>
+ <h2>About Page</h2>
+ </div>
+ );
+}
+export default About;
+#+end_src
+
+I then did this command accordingly to install the routing components:
+#+begin_src bash
+npm install react-router-dom
+#+end_src
+
+After messing with a few of the internals of the app itself in conjunction to primarily feature the 'HashRouter' component so that GitHub Pages properly renders the pages involved, I then ran this npm command to install 'gh-pages' for the project itself:
+#+begin_src bash
+npm install gh-pages
+#+end_src
+
+I then went to the 'package.json' file for the app itself, and added the website's "homepage" key value accordingly:
+#+begin_src json
+"homepage": "https://samuelbanya.github.io/BackToTheDrawingBoard",
+"scripts": {
+ "predeploy": "npm run build",
+ "deploy": "gh-pages -d build",
+ "start": "react-scripts start",
+ "build": "react-scripts build",
+ "test": "react-scripts test",
+ "eject": "react-scripts eject"
+ }
+#+end_src
+
+I then ran the following command to deploy the website:
+#+begin_src bash
+npm run deploy
+#+end_src
