@@ -14,3 +14,8 @@
 -- Board.js: This will be the primary section of the site where the user can view images, rotate images upon a hover icon, tag them, and favorite them. There will be a filter for favorites as well near the top of the page.
 ** Routing
 <2022-07-23 Sat 19:58>: I need to adjust the routing to add routes in the 'App' component to switch given routes depending on user clicks as well
+
+<2022-07-25 Mon 18:16>: This will include a 'NavBar' component that will display the following links:
+- About
+- Upload
+- Board
