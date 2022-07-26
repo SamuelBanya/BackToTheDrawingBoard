@@ -3,7 +3,8 @@ import React from "react";
 function Upload() {
   return (
     <div>
-      <h1>Upload</h1>
+      <NavBar />
+      <h2>Upload</h2>
       <form>
         <label for="photoName"></label>
         <input name="photoName" type="text" value="" />

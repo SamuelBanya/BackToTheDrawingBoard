@@ -1,9 +1,9 @@
-import { Link } from "react-router-dom";
+import NavBar from "./NavBar.js";
 
 const About = () => {
   return (
     <div>
-      <Link to="/">Home</Link>
+      <NavBar />
       <h2>About Page</h2>
       <p>
         This web app allows a user to upload drawing image reference photos so

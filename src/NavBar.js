@@ -14,6 +14,7 @@ const linkStyles = {
 function NavBar() {
   return (
     <div className="navbar">
+      <h1>Back To The Drawing Board: An Image Reference Board Web App!</h1>
       <NavLink
         to="/"
         exact
