@@ -1,10 +1,8 @@
 import React from "react";
-import NavBar from "./NavBar";
 
 function Upload() {
   return (
     <div>
-      <NavBar />
       <h2>Upload</h2>
       <form>
         <label for="photoName"></label>
