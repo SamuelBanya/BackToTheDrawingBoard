@@ -31,6 +31,7 @@ function Upload() {
       // Use this lab as a reference:
       // /Users/samuelbanya/hub/Development/code/phase-2/react-hooks-fetch-crud-code-along/src/components:
       // https://learning.flatironschool.com/courses/5285/assignments/172474?module_item_id=376381
+      console.log("dataArray (before fetch() call): ", dataArray);
       fetch(
         "https://my-json-server.typicode.com/SamuelBanya/BackToTheDrawingBoard",
         {
