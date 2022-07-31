@@ -39,6 +39,14 @@ function NavBar() {
       >
         Board
       </NavLink>
+      <NavLink
+        to="/theme"
+        exact
+        style={linkStyles}
+        activeStyle={{ background: "darkblue" }}
+      >
+        Theme
+      </NavLink>
     </div>
   );
 }
