@@ -80,3 +80,19 @@ I then ran the following command to deploy the website:
 #+begin_src bash
 npm run deploy
 #+end_src
+** How I Created The 'Theme' Component
+<2022-07-31 Sun 11:22>: I used these two labs as a reference for how to change the CSS stylesheet:
+- React Information Flow:
+- https://learning.flatironschool.com/courses/5285/assignments/172480?module_item_id=376334
+- https://github.com/SamuelBanya/react-hooks-information-flow-code-along
+- React State Lab:
+- https://learning.flatironschool.com/courses/5285/assignments/172504?module_item_id=376329
+- https://github.com/SamuelBanya/react-hooks-state-and-events-lab
+
+** How I Managed To Create The 'Upload' Component
+<2022-07-31 Sun 11:11>: I created a React controlled form based upon this lab, 'React Forms Submit':
+- https://learning.flatironschool.com/courses/5285/assignments/172477?module_item_id=376340
+
+This contains event handlers that are triggered upon the 'onChange' event.
+
+When these events are triggered, the 'useState' hook is called to store the user's stored value into the 'state' variable present.
