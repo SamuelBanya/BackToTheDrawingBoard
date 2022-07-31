@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import About from "./About";
 import Upload from "./Upload";
 import Board from "./Board";
+import Theme from "./Theme";
 
 //       <HashRouter>
 //         <Route exact path="/about" component={About} />
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<About />} />
         <Route path="/upload" element={<Upload />} />
         <Route path="/board" element={<Board />} />
+        <Route path="/theme" element={<Theme />} />
       </Routes>
     </div>
   );
