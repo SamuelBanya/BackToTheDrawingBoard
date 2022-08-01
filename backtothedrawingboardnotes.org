@@ -96,3 +96,7 @@ npm run deploy
 This contains event handlers that are triggered upon the 'onChange' event.
 
 When these events are triggered, the 'useState' hook is called to store the user's stored value into the 'state' variable present.
+
+<2022-08-01 Mon 18:38>: Unfortunately, the instructor didn't show up for the office hour today at 6 PM EDT.
+
+I needed to go over the issue I am currently facing which is to make the 'fetch()' request for the 'https://my-json-server.typicode.com/SamuelBanya/BackToTheDrawingBoard' API endpoint accordingly

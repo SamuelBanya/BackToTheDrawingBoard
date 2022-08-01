@@ -13,15 +13,15 @@ function Theme() {
   }
 
   return (
-    <div>
+    <div className={theme}>
       <h2>Theme</h2>
       <h3>Change the theme of the page:</h3>
       <label for="themeSelect">Choose a theme:</label>
       <select onChange={changeTheme} id="themeSelect" name="themeSelect">
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-        <option value="wood">Wood</option>
-        <option value="retro">Retro</option>
+        <option value="App Light">Light</option>
+        <option value="App Dark">Dark</option>
+        <option value="App Wood">Wood</option>
+        <option value="App Retro">Retro</option>
       </select>
     </div>
   );
