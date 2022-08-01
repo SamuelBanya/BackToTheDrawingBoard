@@ -5,12 +5,6 @@ import Upload from "./Upload";
 import Board from "./Board";
 import Theme from "./Theme";
 
-//       <HashRouter>
-//         <Route exact path="/about" component={About} />
-//         <Route exact path="/upload" component={Upload} />
-//         <Route exact path="/board" component={Board} />
-//       </HashRouter>
-
 function App() {
   return (
     <div>
