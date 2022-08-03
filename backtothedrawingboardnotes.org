@@ -100,3 +100,20 @@ When these events are triggered, the 'useState' hook is called to store the user
 <2022-08-01 Mon 18:38>: Unfortunately, the instructor didn't show up for the office hour today at 6 PM EDT.
 
 I needed to go over the issue I am currently facing which is to make the 'fetch()' request for the 'https://my-json-server.typicode.com/SamuelBanya/BackToTheDrawingBoard' API endpoint accordingly
+** How I Continued To Struggle To Deploy The Actual App
+<2022-08-03 Wed 19:14>: Over the last few days, I have tried the following tasks:
+- Deploying the actual Phase 2 project to GitHubPages.io --> This ended terribly since the forced 'db.json' requirement basically makes this kind of static site option impossible to work with
+- Deploying the Phase 2 project to Netlify --> Too confusing, and had no idea what I was doing so I abandoned this quickly
+- Deploying the Phase 2 project locally and to my website: This is a current work in progress, and is probably my only shot at actually making this work
+** How I Struggled With Getting V6 Routing To Actually Work
+<2022-08-03 Wed 19:16>: As of this blog post, I have been forced to use V6 style routing by React themselves:
+- https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html#updates-to-client-rendering-apis
+
+I also tried using this blog post as a reference as well:
+- https://sagarkudu.medium.com/migrate-react-routing-from-v5-to-v6-step-by-step-75399ac8dc4b
+
+Overall, anything I learned regarding actual '<Switch>' blocks for routing is completely useless, as it is replaced by using '<Routes>' instead.
+
+Also, I have no idea how to actually make the routes work as a result, which is frustrating since I don't have help from any TC's, and the office hours for this project are usually during work hours which makes it impossible for my actual job.
+
+I have since asked for help in our Slack channel for our cohort, and tagged the instructor.
