@@ -148,3 +148,9 @@ npm install react-photo-album
 The problem was then trying to figure out how on earth to even utilize this in my project.
 
 At this point, I will need to find another image framework on NPM that offers this kind of functionality.
+
+<2022-08-04 Thu 19:52>: I also found the 'moveable' library which might do the same task as well:
+- https://github.com/daybrush/moveable
+
+I found it through this CodeSandbox demo:
+- https://codesandbox.io/s/react-moveable-image-fk2lt
