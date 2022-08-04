@@ -32,18 +32,15 @@ function Upload() {
       // /Users/samuelbanya/hub/Development/code/phase-2/react-hooks-fetch-crud-code-along/src/components:
       // https://learning.flatironschool.com/courses/5285/assignments/172474?module_item_id=376381
       console.log("dataArray (before fetch() call): ", dataArray);
-      fetch(
-        "https://my-json-server.typicode.com/SamuelBanya/BackToTheDrawingBoard/photos",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            dataArray: dataArray,
-          }),
-        }
-      )
+      fetch("http://localhost:3000/photos", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          dataArray: dataArray,
+        }),
+      })
         .then((response) => response.json())
         .then((response) => {
           console.log("response (from fetch request): ", response);

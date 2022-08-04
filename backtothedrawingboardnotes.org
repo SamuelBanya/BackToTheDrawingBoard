@@ -117,3 +117,34 @@ Overall, anything I learned regarding actual '<Switch>' blocks for routing is co
 Also, I have no idea how to actually make the routes work as a result, which is frustrating since I don't have help from any TC's, and the office hours for this project are usually during work hours which makes it impossible for my actual job.
 
 I have since asked for help in our Slack channel for our cohort, and tagged the instructor.
+
+<2022-08-04 Thu 19:28>: I then was able to get help this morning from one of the cohort instructors named Demetrio who then told me about this particular page as a reference guide for V6 routing:
+- https://reactrouter.com/docs/en/v6/getting-started/overview
+
+The main solution to this problem was installing the 'v6' component accordingly:
+#+begin_src bash
+npm install react-router-dom@6
+#+end_src
+
+After doing this installation action and modifying the routes to have '<Routes>' and '<Route>' component sections accordingly, I was able to get the project up and running
+** How I Selected An Image Gallery Component From NPM
+<2022-08-04 Thu 19:31>: After a bit of research, I was able to find out a cool photo based library to use, aka 'react-photo-album':
+- https://www.npmjs.com/package/react-photo-album
+
+Also, I found a great sandbox example that does the exact functionality I want to do:
+- https://codesandbox.io/s/w66dc
+
+The problem with the above example is that it is completely based from Typescript, so it would have to be compiled with the following command accordingly just for to even work:
+#+begin_src bash
+tsc app.tsx
+#+end_src
+
+I then installed several of the related dependencies such as (https://www.npmjs.com/package/clsx) and 'react-photo-album' itself:
+#+begin_src bash
+npm install clsx
+npm install react-photo-album
+#+end_src
+
+The problem was then trying to figure out how on earth to even utilize this in my project.
+
+At this point, I will need to find another image framework on NPM that offers this kind of functionality.
