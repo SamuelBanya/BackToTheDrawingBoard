@@ -154,3 +154,7 @@ At this point, I will need to find another image framework on NPM that offers th
 
 I found it through this CodeSandbox demo:
 - https://codesandbox.io/s/react-moveable-image-fk2lt
+
+<2022-08-04 Thu 19:55>: I also found these two libraries to consider:
+- https://konvajs.org/docs/react/index.html
+- https://github.com/Flipboard/react-canvas
