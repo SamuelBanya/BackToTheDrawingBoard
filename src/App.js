@@ -1,5 +1,5 @@
 import NavBar from "./NavBar";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import About from "./About";
 import Upload from "./Upload";
 import Board from "./Board";
@@ -12,14 +12,12 @@ function App() {
   return (
     <div id="root">
       <NavBar />
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<About />} />
-          <Route exact path="/upload" element={<Upload />} />
-          <Route exact path="/board" element={<Board />} />
-          <Route exact path="/theme" element={<Theme />} />
-        </Routes>
-      </BrowserRouter>
+      <Routes>
+        <Route path="/" element={<About />} />
+        <Route path="/upload" element={<Upload />} />
+        <Route path="/board" element={<Board />} />
+        <Route path="/theme" element={<Theme />} />
+      </Routes>
     </div>
   );
 }

@@ -17,33 +17,29 @@ function NavBar() {
       <h1>Back To The Drawing Board: An Image Reference Board Web App!</h1>
       <NavLink
         to="/"
-        exact
         style={linkStyles}
-        activeStyle={{ background: "darkblue" }}
+        activestyle={{ background: "darkblue" }}
       >
         About
       </NavLink>
       <NavLink
         to="/upload"
-        exact
         style={linkStyles}
-        activeStyle={{ background: "darkblue" }}
+        activestyle={{ background: "darkblue" }}
       >
         Upload
       </NavLink>
       <NavLink
         to="/board"
-        exact
         style={linkStyles}
-        activeStyle={{ background: "darkblue" }}
+        activestyle={{ background: "darkblue" }}
       >
         Board
       </NavLink>
       <NavLink
         to="/theme"
-        exact
         style={linkStyles}
-        activeStyle={{ background: "darkblue" }}
+        activestyle={{ background: "darkblue" }}
       >
         Theme
       </NavLink>
