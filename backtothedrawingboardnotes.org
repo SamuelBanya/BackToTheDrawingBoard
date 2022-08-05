@@ -158,3 +158,45 @@ I found it through this CodeSandbox demo:
 <2022-08-04 Thu 19:55>: I also found these two libraries to consider:
 - https://konvajs.org/docs/react/index.html
 - https://github.com/Flipboard/react-canvas
+
+<2022-08-05 Fri 15:04>: Here are the finds from today's research:
+
+I found this random library that allows you to to pan, zoom, and rotate images individually:
+- https://github.com/vianuvem-vn/vn-react-image-pan-zoom-rotate
+
+The related live demo however uses Typescript, so I don't know if this is fair game in this context:
+- https://codesandbox.io/s/n1rv671pkj?file=/src/index.tsx
+
+This appears to be a standalone zoom, image, and rotate library for React images, but doesn't have a corresponding demo section:
+- https://github.com/chiaweilee/react-image-zoom-rotate
+
+This is a great CodeSandbox demo that shows how to rotate images, zoom in and out, and reset them, which utilizes the 'Draggable' library
+- https://codesandbox.io/s/4rznnjz539?file=/src/index.js:84-99
+
+This is the pinnacle find today, as this is the single library I was looking for, which would be to be able to drag items across a screen, aka 'Draggable':
+- https://www.npmjs.com/package/react-draggable
+
+This is a live demo site showcasing how to utilize 'Draggable' as well as its corresponding source code:
+- http://react-grid-layout.github.io/react-draggable/example/
+- https://github.com/react-grid-layout/react-draggable/blob/HEAD/example/example.js
+
+This is a wonderful example that showcases exactly what I wanted to do, which was to drag images across a canvas, and to actually resize them:
+- https://stackblitz.com/edit/react-draggable-and-resizable-pictures?file=index.js
+
+<2022-08-05 Fri 15:11>: I then decided to base my 'Board' component upon this example:
+- https://stackblitz.com/edit/react-draggable-and-resizable-pictures?file=index.js
+
+I did the following actions:
+#+begin_src bash
+npm install re-resizable
+npm install react-draggable
+#+end_src
+
+<2022-08-05 Fri 15:51>: With a bit of manipulation, I was able to utilize the demo from the NPM page's example and get it working with an example Div tag, but with a 'function' component standpoint and not by using a 'Class' component like the example on the Docs page:
+- https://www.npmjs.com/package/react-draggable
+
+I now am trying to solve the issue of the CSS styling itself since it appears as a text cursor when I hover over 'Drag from here' section.
+
+I am examining the related source code as well as its corresponding HTML page so that I can at least get the styling to match what is present:
+- https://github.com/react-grid-layout/react-draggable/blob/HEAD/example/example.js
+- https://github.com/react-grid-layout/react-draggable/blob/44a8c6ed103ec6c0a4dda5faf7f8ebca16f9b325/example/index.html
