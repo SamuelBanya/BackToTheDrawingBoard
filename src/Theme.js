@@ -5,11 +5,16 @@ import React, { useState } from "react";
 
 function Theme() {
   const [theme, setTheme] = useState("");
+  const [isLight, setLightMode] = useState(false);
 
   function changeTheme(event) {
     // setTheme()
     console.log("event.target.value: ", event.target.value);
     setTheme(event.target.value);
+  }
+
+  function changeLightMode() {
+    setLightMode((isLight) => !isLight);
   }
 
   let appClass = theme;
@@ -25,6 +30,11 @@ function Theme() {
         <option value="App wood">Wood</option>
         <option value="App retro">Retro</option>
       </select>
+      <br />
+      <br />
+      <button onClick={changeLightMode}>
+        {isLight ? "Dark Mode" : "Light Mode"}
+      </button>
     </div>
   );
 }
