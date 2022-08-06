@@ -12,16 +12,18 @@ function Theme() {
     setTheme(event.target.value);
   }
 
+  let appClass = theme;
+
   return (
-    <div className={theme}>
+    <div className={appClass}>
       <h2>Theme</h2>
       <h3>Change the theme of the page:</h3>
       <label for="themeSelect">Choose a theme:</label>
       <select onChange={changeTheme} id="themeSelect" name="themeSelect">
-        <option value="App Light">Light</option>
-        <option value="App Dark">Dark</option>
-        <option value="App Wood">Wood</option>
-        <option value="App Retro">Retro</option>
+        <option value="App light">Light</option>
+        <option value="App dark">Dark</option>
+        <option value="App wood">Wood</option>
+        <option value="App retro">Retro</option>
       </select>
     </div>
   );

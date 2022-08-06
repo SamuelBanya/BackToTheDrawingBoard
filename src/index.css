@@ -11,3 +11,31 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.App.light {
+  --font-color: rg(50, 50, 50);
+  --background: rgb(255, 255, 255);
+  --background--light: rgb(80, 80, 80);
+  transition: all 0.3s;
+}
+
+.App.dark {
+  --font-color: rgb(255, 255, 255);
+  --background: rgb(50, 50, 50);
+  --background--light: rgb(80, 80, 80);
+  transition: all 0.3s;
+}
+
+.App.wood {
+  --font-color: rgb(255, 239, 227);
+  --background: rgb(184, 77, 0);
+  --background--light: rgb(80, 80, 80);
+  transition: all 0.3s;
+}
+
+.App.retro {
+  --font-color: rgb(0, 255, 0);
+  --background: rgb(37, 38, 37);
+  --background--light: rgb(80, 80, 80);
+  transition: all 0.3s;
+}

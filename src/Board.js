@@ -1,54 +1,44 @@
-import React, { useEffect, useState } from "react";
-import ReactDOM from "react-dom";
+import React from "react";
+// import { render } from "react-dom";
+import { createRoot } from "react-dom/client";
+import "./style.css";
+
+import { Resizable } from "re-resizable";
 import Draggable from "react-draggable";
 
-function Board() {
-  const [photos, setPhotos] = useState([]);
-  useEffect(() => {
-    fetch("http://localhost:3000/photos")
-      .then((response) => response.json())
-      .then((data) => {
-        console.log("data: ", data);
-        setPhotos(data);
-      });
-  }, []);
+const imageUrl =
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRe7Ki-ys2G_MMb_xCrY7nAf87F5ZiIOyCh4f5H_JCTTtMSMLCL";
 
-  console.log("photos: ", photos);
+// NOTE:
+// Because this example uses 'Class', I can't use 'useState', and actually have to opt for the 'this.setState()' function
+// This is so that I can set each Class instance's state individually:
+// https://reactjs.org/docs/hooks-state.html
 
-  // photos.map((photo) => {
-  // console.log("Using .map() to go through each 'photo' from 'photos': ");
-  // console.log("photo: ", photo);
-  // });
+// NOTE:
+// I will also have to use this section of the React docs as a reference page for this idea
+// so that I can use a 'Class' with 'useEffect()':
+// https://reactjs.org/docs/hooks-effect.html
 
-  return (
-    <div>
-      <h2>Board</h2>
-      <label htmlFor="sortSelect">Sort By Favorite Or Tag</label>
-      <select id="favoriteSelect" name="">
-        Favorite
-      </select>
-      <select id="tagSelect" name="">
-        Tag
-      </select>
-      {photos.map((photo) => {
-        console.log("Using .map() to go through each 'photo' from 'photos': ");
-        console.log("photo: ", photo);
-      })}
-      <Draggable
-        axis="x"
-        handle=".handle"
-        defaultPosition={{ x: 0, y: 0 }}
-        position={null}
-        grid={[25, 25]}
-        scale={1}
-      >
-        <div>
-          <div className="handle">Drag from here</div>
-          <div>This readme is really dragging on...</div>
-        </div>
-      </Draggable>
-    </div>
+export default class Board extends React.Component {
+  render = () => (
+    <Draggable>
+      <Resizable
+        defaultSize={{
+          width: 200,
+          height: 360,
+        }}
+        style={{
+          background: `url(${imageUrl})`,
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+        }}
+        lockAspectRatio={true}
+      ></Resizable>
+    </Draggable>
   );
 }
 
-export default Board;
+const container = document.getElementById("root");
+const root = createRoot(container);
+
+root.render(<Board />, document.querySelector("#root"));

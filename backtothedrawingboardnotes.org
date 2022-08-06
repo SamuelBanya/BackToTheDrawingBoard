@@ -200,3 +200,31 @@ I now am trying to solve the issue of the CSS styling itself since it appears as
 I am examining the related source code as well as its corresponding HTML page so that I can at least get the styling to match what is present:
 - https://github.com/react-grid-layout/react-draggable/blob/HEAD/example/example.js
 - https://github.com/react-grid-layout/react-draggable/blob/44a8c6ed103ec6c0a4dda5faf7f8ebca16f9b325/example/index.html
+
+<2022-08-06 Sat 16:23>: My current issue is that I pretty much just utilized the exact example that I wanted to use:
+- https://stackblitz.com/edit/react-draggable-and-resizable-pictures?file=index.js
+
+The problem with this is that the person opted for using a 'Class' instead of a 'Function' which completely is beyond the scope of the entire course.
+
+I don't know how I can re-add my state variables with this in mind unfortunately.
+
+I will proceed with the 'theme' section and return to this issue later since at least I got one working image that works for now.
+
+The only thing I can think of later to add the corresponding 'tags' would be to add a bottom bar on the page that would display tags, display tags below each image, or add a corresponding side bar to the page with 'tags'.
+
+I have to either add tags to the bottom of the page or the image itself because this will scale badly with mobile devices however.
+
+<2022-08-06 Sat 16:43>: One other thing I need to consider is when I actually DO get multiple images to display, I will actually have to know the actual width and height of each one.
+
+The reason why that example one works is that they manually determined the width, and height of each image on the page.
+
+I researched a few libraries on NPM, and found this one in particular called 'probe-image-size' which when given a specific image, it will return the 'width' and 'height' of the requested image:
+- https://www.npmjs.com/package/probe-image-size
+
+The more specific example of this is the 'Using a URL' example on their GitHub page itself:
+- https://github.com/image-size/image-size
+
+** How I Added The 'theme' Component to change the CSS styling of the web app itself
+<2022-08-06 Sat 16:26>: I based the idea to change the CSS of the page itself with the related Grocery Store list app we made a while back which incorporates a 'Dark' and 'Light' mode:
+- https://learning.flatironschool.com/courses/5285/assignments/172504?module_item_id=376329
+- https://github.com/SamuelBanya/react-hooks-state-and-events-lab

@@ -12,12 +12,11 @@ function About() {
       <p>Functions that the user should be able to do include: </p>
       <ul>
         <li>Upload art reference images</li>
-        <li>Rotate images</li>
-        <li>Favorite images</li>
+        <li>Resize images</li>
         <li>Tag images</li>
       </ul>
     </div>
   );
-};
+}
 
 export default About;
