@@ -224,6 +224,24 @@ I researched a few libraries on NPM, and found this one in particular called 'pr
 The more specific example of this is the 'Using a URL' example on their GitHub page itself:
 - https://github.com/image-size/image-size
 
+<2022-08-07 Sun 16:22>: I did some research to make sure I was on the right path to be able to just use a standard React 'Function' component instead of a 'Class' component, and found these two examples that seem to use 'Draggable' and 're-resizable' with just 'Function' components, so I am clearly on the right track:
+- Using 'Draggable' with a 'Function' React component:
+- https://blog.logrocket.com/create-draggable-components-react-draggable/
+- Using 're-resizable' with a 'Function' React component, NOTE: This example actually offers good ideas on how to use the 'useState' hook as well for this scenario to determine the 'width' and 'height':
+- https://www.tutorialspoint.com/how-to-make-a-resizable-element-in-react-js
+
+The issue I am facing now is that no matter what I do, I cannot get the 'Resizable' component to be returned as JSX with brackets, {} inside ther 'return' block of the 'Board' component.
+
+So far, if I place a '<div>' tag after the '<Draggable>' tag, and before the '<Resizeable>' tag, it allows me to evaluate code blocks accordingly, but any other variation just isn't allowed for some reason:
+#+begin_src js
+        {photos
+          ? photos.map((photo) => console.log("photo (from.map()): ", photo))
+          : console.log("photos not present")}
+#+end_src
+
+<2022-08-07 Sun 16:36>: I'm not sure if this matters completely, but I found a similar example that ONLY uses a 'Function' React component that might be similar in this scenario:
+- https://codesandbox.io/s/xp9p7272m4
+
 ** How I Added The 'theme' Component to change the CSS styling of the web app itself
 <2022-08-06 Sat 16:26>: I based the idea to change the CSS of the page itself with the related Grocery Store list app we made a while back which incorporates a 'Dark' and 'Light' mode:
 - https://learning.flatironschool.com/courses/5285/assignments/172504?module_item_id=376329

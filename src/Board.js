@@ -26,45 +26,31 @@ function Board() {
   console.log("photos after useEffect() call: ", photos);
 
   console.log("typeof(photos): ", typeof photos);
-
+  //
+  // {photos.map((photo) => console.log("photo (from.map()): ", photo);)}
+  //          : console.log("Null")}
   return (
     <Draggable>
       <div>
-        {photos.map((photo) => {
-          console.log("photo: ", photo);
-          // console.log(
-          // 'photo["photoArray"]["photoName"]: ',
-          // photo["photoArray"]["photoName"]
-          // );
-          return (
-            <Resizable
-              // 'photos' is an array of objects
-              // Each 'photo' object contains a 'dataArray' array that also contains an object
-              // TODO: Figure out how to actually determine the 'key' value since its so nested:
-              // key={photos["dataArray"][photo]["photoName"]}
-              defaultSize={{
-                width: 200,
-                height: 360,
-              }}
-              style={{
-                background: `url(${imageUrl})`,
-                backgroundSize: "contain",
-                backgroundRepeat: "no-repeat",
-              }}
-              lockAspectRatio={true}
-            ></Resizable>
-          );
-        })}
+        {photos ? (
+          photos.map((photo) => console.log("photo (from.map()): ", photo))
+        ) : (
+          <Resizable
+            defaultSize={{
+              width: 200,
+              height: 360,
+            }}
+            style={{
+              background: `url(${imageUrl})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+            }}
+            lockAspectRatio={true}
+          ></Resizable>
+        )}
       </div>
     </Draggable>
   );
 }
-//   );
-// }
 
 export default Board;
-
-// const container = document.getElementById("root");
-// const root = createRoot(container);
-
-// root.render(<Board />, document.querySelector("#root"));
