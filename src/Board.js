@@ -1,6 +1,6 @@
 import React from "react";
 // import { render } from "react-dom";
-import { createRoot } from "react-dom/client";
+// import { createRoot } from "react-dom/client";
 import "./style.css";
 
 import { Resizable } from "re-resizable";
@@ -19,8 +19,10 @@ const imageUrl =
 // so that I can use a 'Class' with 'useEffect()':
 // https://reactjs.org/docs/hooks-effect.html
 
-export default class Board extends React.Component {
-  render = () => (
+// export default class Board extends React.Component {
+//   render = () => (
+function Board() {
+  return (
     <Draggable>
       <Resizable
         defaultSize={{
@@ -37,8 +39,12 @@ export default class Board extends React.Component {
     </Draggable>
   );
 }
+//   );
+// }
 
-const container = document.getElementById("root");
-const root = createRoot(container);
+export default Board;
 
-root.render(<Board />, document.querySelector("#root"));
+// const container = document.getElementById("root");
+// const root = createRoot(container);
+
+// root.render(<Board />, document.querySelector("#root"));
