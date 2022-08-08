@@ -242,6 +242,127 @@ So far, if I place a '<div>' tag after the '<Draggable>' tag, and before the '<R
 <2022-08-07 Sun 16:36>: I'm not sure if this matters completely, but I found a similar example that ONLY uses a 'Function' React component that might be similar in this scenario:
 - https://codesandbox.io/s/xp9p7272m4
 
+<2022-08-08 Mon 18:28>: I realized that I wasn't actually returning a JSX component for the default expression for the ternary statement, so after using the following 'return' statement, I was back on the track for my project:
+
+I went from this:
+#+begin_src js
+  return (
+    <Draggable>
+      <div>
+        {photos ? (
+          photos.map((photo) => {
+            console.log("photo (from.map()): ", photo);
+            console.log("imageUrl: ", imageUrl);
+          })
+        ) : (
+          <Resizable
+            defaultSize={{
+              width: 200,
+              height: 360,
+            }}
+            style={{
+              background: `url(${imageUrl})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+            }}
+            lockAspectRatio={true}
+          ></Resizable>
+        )}
+      </div>
+    </Draggable>
+  );
+#+end_src
+
+To this:
+#+begin_src js
+  return (
+    <Draggable>
+      <div>
+        {photos ? (
+          photos.map((photo) => {
+            console.log("photo (from.map()): ", photo);
+            console.log("imageUrl: ", imageUrl);
+
+            return (
+              <Resizable
+                defaultSize={{
+                  width: 200,
+                  height: 360,
+                }}
+                style={{
+                  background: `url(${imageUrl})`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                }}
+                lockAspectRatio={true}
+              ></Resizable>
+            );
+          })
+        ) : (
+          <Resizable
+            defaultSize={{
+              width: 200,
+              height: 360,
+            }}
+            style={{
+              background: `url(${imageUrl})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat",
+            }}
+            lockAspectRatio={true}
+          ></Resizable>
+        )}
+      </div>
+    </Draggable>
+  );
+#+end_src
+
+<2022-08-08 Mon 18:51>: After looking at the contents of 'db.json', I then figured out how to iterate through the entire object itself since it consists of the following components:
+- The entire response is an object itself
+- Within this object, there is a 'photos' key that contains an array
+- This is an array of objects
+- Inside this array is a key value called 'dataArray', which itself contains a key value of an array with an object inside of it
+- Inside this object, there are two key values, 'photoName', and 'photoLink'
+
+This is an example of this output only containing two example images:
+#+begin_src json
+{
+  "photos": [
+    {
+      "dataArray": [
+        {
+          "photoName": "Garfield",
+          "photoLink": "https://en.wikipedia.org/wiki/Garfield_%28character%29#/media/File:Garfield_the_Cat.svg"
+        }
+      ],
+      "id": 1
+    },
+    {
+      "dataArray": [
+        {
+          "photoName": "Odie",
+          "photoLink": "https://upload.wikimedia.org/wikipedia/en/thumb/a/a6/Odie_the_Dog.svg/1200px-Odie_the_Dog.svg.png"
+        }
+      ],
+      "id": 2
+    }
+  ]
+}
+#+end_src
+
+I then figured out I could also print these to console with these two statements:
+#+begin_src js
+  console.log(
+    'photo["dataArray"][0]["photoName"]: ',
+    photo["dataArray"][0]["photoName"]
+  );
+
+  console.log(
+    'photo["dataArray"][0]["photoLink"]: ',
+    photo["dataArray"][0]["photoLink"]
+  );
+#+end_src
+
 ** How I Added The 'theme' Component to change the CSS styling of the web app itself
 <2022-08-06 Sat 16:26>: I based the idea to change the CSS of the page itself with the related Grocery Store list app we made a while back which incorporates a 'Dark' and 'Light' mode:
 - https://learning.flatironschool.com/courses/5285/assignments/172504?module_item_id=376329

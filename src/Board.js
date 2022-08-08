@@ -33,7 +33,36 @@ function Board() {
     <Draggable>
       <div>
         {photos ? (
-          photos.map((photo) => console.log("photo (from.map()): ", photo))
+          photos.map((photo) => {
+            console.log("photo (from.map()): ", photo);
+            console.log("imageUrl: ", imageUrl);
+
+            console.log(
+              'photo["dataArray"][0]["photoName"]: ',
+              photo["dataArray"][0]["photoName"]
+            );
+            console.log(
+              'photo["dataArray"][0]["photoLink"]: ',
+              photo["dataArray"][0]["photoLink"]
+            );
+
+            let photoLink = photo["dataArray"][0]["photoLink"];
+
+            return (
+              <Resizable
+                defaultSize={{
+                  width: 200,
+                  height: 360,
+                }}
+                style={{
+                  background: `url(${photoLink})`,
+                  backgroundSize: "contain",
+                  backgroundRepeat: "no-repeat",
+                }}
+                lockAspectRatio={true}
+              ></Resizable>
+            );
+          })
         ) : (
           <Resizable
             defaultSize={{
