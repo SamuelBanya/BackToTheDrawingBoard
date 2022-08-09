@@ -1,24 +1,25 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 // Based upon this lab:
 // https://github.com/SamuelBanya/react-hooks-state-and-events-lab
 
 function Theme() {
   const [theme, setTheme] = useState("");
-  const [isLight, setLightMode] = useState(false);
 
   function changeTheme(event) {
-    // setTheme()
     console.log("event.target.value: ", event.target.value);
     setTheme(event.target.value);
   }
 
-  function changeLightMode() {
-    setLightMode((isLight) => !isLight);
-  }
+  // Set the default theme to 'App light' with 'useEffect' hook:
+  useEffect(() => {
+    setTheme("App light");
+  }, []);
 
   let appClass = theme;
 
+  // TODO: I need to somehow send up the 'className' prop up to 'App.js' so that all components can
+  // be rendered with this related 'appClass' property
   return (
     <div className={appClass}>
       <h2>Theme</h2>
@@ -32,9 +33,6 @@ function Theme() {
       </select>
       <br />
       <br />
-      <button onClick={changeLightMode}>
-        {isLight ? "Dark Mode" : "Light Mode"}
-      </button>
     </div>
   );
 }

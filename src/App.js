@@ -5,9 +5,6 @@ import Upload from "./Upload";
 import Board from "./Board";
 import Theme from "./Theme";
 
-// Utilized this blog post for the conversion to V6 style routing:
-// https://sagarkudu.medium.com/migrate-react-routing-from-v5-to-v6-step-by-step-75399ac8dc4b
-
 function App() {
   return (
     <div id="root">
