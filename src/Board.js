@@ -20,12 +20,15 @@ function Board() {
 
   const photoToDisplay = photos.map((photo) => {
     return (
-      <Photo
-        key={photo["dataArray"][0]["photoName"]}
-        className="imgClass"
-        photoName={photo["dataArray"][0]["photoName"]}
-        photoLink={photo["dataArray"][0]["photoLink"]}
-      />
+      <div>
+        <Photo
+          key={photo["dataArray"][0]["photoName"]}
+          className="imgClass"
+          photoName={photo["dataArray"][0]["photoName"]}
+          photoLink={photo["dataArray"][0]["photoLink"]}
+        />
+        <h1>❌</h1>
+      </div>
     );
   });
 
