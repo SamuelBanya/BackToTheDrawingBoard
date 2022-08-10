@@ -13,7 +13,6 @@ function About() {
       <ul>
         <li>Upload art reference images</li>
         <li>Resize images</li>
-        <li>Tag images</li>
       </ul>
     </div>
   );
