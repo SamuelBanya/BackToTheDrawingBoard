@@ -59,18 +59,18 @@ function Upload() {
   });
 
   return (
-    <div className="App light">
+    <div>
       <h2>Upload Image To Board</h2>
       <form onSubmit={handleSubmit}>
-        <div class="form-group">
-          <label for="photoNameUpload">Name: </label>
+        <div className="form-group">
+          <label htmlFor="photoNameUpload">Name: </label>
           <input
             name="photoNameUpload"
             type="text"
             onChange={handlePhotoNameChange}
             value={photoName}
           />
-          <label for="photoLinkUpload"> Link: </label>
+          <label htmlFor="photoLinkUpload"> Link: </label>
           <input
             name="photoLinkUpload"
             type="text"

@@ -4,7 +4,7 @@ import About from "./About";
 import Upload from "./Upload";
 import Board from "./Board";
 import Theme from "./Theme";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
   const [theme, setTheme] = useState("");
@@ -13,6 +13,10 @@ function App() {
     console.log("event.target.value: ", event.target.value);
     setTheme(event.target.value);
   }
+
+  useEffect(() => {
+    setTheme("App light");
+  }, []);
 
   return (
     <div id="root" className={theme}>
