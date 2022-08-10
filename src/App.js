@@ -5,15 +5,17 @@ import Upload from "./Upload";
 import Board from "./Board";
 import Theme from "./Theme";
 
+// <Route path="/theme" element={<Theme />} />
+
 function App() {
   return (
     <div id="root">
       <NavBar />
+      <Theme />
       <Routes>
         <Route path="/" element={<About />} />
         <Route path="/upload" element={<Upload />} />
         <Route path="/board" element={<Board />} />
-        <Route path="/theme" element={<Theme />} />
       </Routes>
     </div>
   );

@@ -11,6 +11,14 @@ const linkStyles = {
   color: "white",
 };
 
+// <NavLink
+//         to="/theme"
+//         style={linkStyles}
+//         activestyle={{ background: "darkblue" }}
+// >
+//     Theme
+// </NavLink>
+
 function NavBar() {
   return (
     <div className="navbar">
@@ -35,13 +43,6 @@ function NavBar() {
         activestyle={{ background: "darkblue" }}
       >
         Board
-      </NavLink>
-      <NavLink
-        to="/theme"
-        style={linkStyles}
-        activestyle={{ background: "darkblue" }}
-      >
-        Theme
       </NavLink>
     </div>
   );
