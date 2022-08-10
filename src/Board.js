@@ -24,6 +24,17 @@ function Board() {
   }, []);
 
   // TODO:
+  // Use 'probe-image-size' library to determine width and height of the image the user passed in:
+  // https://github.com/nodeca/probe-image-size
+
+  // NOTE: If I uncomment this section, I receive this error:
+  // ERROR:
+  // [error] Board.js: SyntaxError: 'await' is only allowed within async functions and at the top levels of modules. (33:16)
+  // CONTINUED:
+  // const probe = require("probe-image-size");
+  // let result = await probe('http://example.com/image.jpg');
+
+  // TODO:
   // Pass down 'handleDeletePhoto' callback function to each 'Photo' component
   // onDeletePhoto={handleDeletePhoto}
 
