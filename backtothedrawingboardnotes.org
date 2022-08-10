@@ -363,6 +363,49 @@ I then figured out I could also print these to console with these two statements
   );
 #+end_src
 
+<2022-08-10 Wed 19:36>: I then further refactored the code so that I would encapsulate the entire 'photo' objects that I was iterating over within a 'fetch()' call, and return a JSX value that would contain each individual 'Photo' child component which contained the 'key', 'photoName' and 'photoLink' props I passed down
+
+This is shown within this snippet:
+#+begin_src js
+  const photoToDisplay = photos.map((photo) => {
+    return (
+      <div>
+        <Photo
+          key={photo["dataArray"][0]["photoName"]}
+          photoName={photo["dataArray"][0]["photoName"]}
+          photoLink={photo["dataArray"][0]["photoLink"]}
+        />
+      </div>
+    );
+  });
+
+  return <div>{photoToDisplay}</div>;
+#+end_src
+
+Then, within the 'Photo' component, I modified the 'return' statement so that each returned JSX object would contain a '<Draggable>' and '<Resizable>' component. This is shown in the following 'return' section of the 'Photo.js' component:
+#+begin_src js
+  return (
+    <Draggable>
+      <Resizable
+        className="imgClass"
+        defaultSize={{
+          width: 200,
+          height: 360,
+        }}
+        style={{
+          background: `url(${photoLink})`,
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+        }}
+        lockAspectRatio={true}
+      >
+        <button onClick={handleDeletePhoto}>❌</button>
+      </Resizable>
+    </Draggable>
+  );
+}
+#+end_src
+
 ** How I Added The 'theme' Component to change the CSS styling of the web app itself
 <2022-08-06 Sat 16:26>: I based the idea to change the CSS of the page itself with the related Grocery Store list app we made a while back which incorporates a 'Dark' and 'Light' mode:
 - https://learning.flatironschool.com/courses/5285/assignments/172504?module_item_id=376329
@@ -376,6 +419,66 @@ I am still struggling with how to pass up the 'appClass' prop so that the 'Theme
 - Board
 
 For the time being as a workaround, I used 'App light' as the value for the 'className' attribute for each of the components mentioned above.
+
+<2022-08-10 Wed 19:34>: I resolved this issue by using a callback function, specifically, 'setTheme' within the 'Theme' component itself:
+#+begin_src js
+function Theme({ setTheme }) {
+  return (
+    <div>
+      <h2>Theme</h2>
+      <h3>Change the theme of the page:</h3>
+      <label htmlFor="themeSelect">Choose a theme:</label>
+      <select onChange={setTheme} id="themeSelect" name="themeSelect">
+        <option value="App light">Light</option>
+        <option value="App dark">Dark</option>
+        <option value="App wood">Wood</option>
+        <option value="App retro">Retro</option>
+      </select>
+      <br />
+      <br />
+    </div>
+  );
+}
+#+end_src
+
+I then moved over the 'useState' functions for 'theme' and 'setTheme' to the parent 'App.js' component, and called a local 'handleTheme' function that used 'setTheme()' accordingly to change the theme as shown by this revision:
+#+begin_src js
+import NavBar from "./NavBar";
+import { Routes, Route } from "react-router-dom";
+import About from "./About";
+import Upload from "./Upload";
+import Board from "./Board";
+import Theme from "./Theme";
+import React, { useState, useEffect } from "react";
+
+function App() {
+  const [theme, setTheme] = useState("");
+
+  function handleTheme(event) {
+    console.log("event.target.value: ", event.target.value);
+    setTheme(event.target.value);
+  }
+
+  useEffect(() => {
+    setTheme("App light");
+  }, []);
+
+  return (
+    <div id="root" className={theme}>
+      <NavBar />
+      <Theme setTheme={handleTheme} />
+      <Routes>
+        <Route path="/" element={<About />} />
+        <Route path="/upload" element={<Upload />} />
+        <Route path="/board" element={<Board />} />
+      </Routes>
+    </div>
+  );
+}
+export default App;
+#+end_src
+
+With this in mind, I was able to change the theme of the overall app successfully.
 ** How I Was Able To Change The App's Header Font To 'Back To The Future' Styled Font
 <2022-08-09 Tue 21:07>: I referenced this Digital Ocean article on how to actually do this:
 - https://www.digitalocean.com/community/tutorials/how-to-load-and-use-custom-fonts-with-css
@@ -410,3 +513,5 @@ I then applied the 'className' to the matching header, and it caused the font to
 #+begin_src html
       <h1 className="AppHeader">Back & Drawing Board:</h1>
 #+end_src
+** How I Was Able To Add A Red Border Around Each Image
+<2022-08-10 Wed 19:33>: I was able to add the className="imgClass" attribute value to 'Photo.js', which then corresponded to the 'imgClass' related CSS style class I had made earlier within 'index.css'
