@@ -23,7 +23,6 @@ function Board() {
       <div>
         <Photo
           key={photo["dataArray"][0]["photoName"]}
-          className="imgClass"
           photoName={photo["dataArray"][0]["photoName"]}
           photoLink={photo["dataArray"][0]["photoLink"]}
         />

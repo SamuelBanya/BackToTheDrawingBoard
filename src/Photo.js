@@ -7,9 +7,16 @@ function Photo({ photoName, photoLink }) {
   console.log("photoName (from Photo component): ", photoName);
   console.log("photoLink (from Photo component): ", photoLink);
 
+  function handleDeleteImage(e) {
+    console.log("handleDeleteImage() function called");
+    console.log("e.target.value: ", e.target.value);
+    console.log("e: ", e);
+  }
+
   return (
     <Draggable>
       <Resizable
+        className="imgClass"
         defaultSize={{
           width: 200,
           height: 360,
@@ -21,7 +28,7 @@ function Photo({ photoName, photoLink }) {
         }}
         lockAspectRatio={true}
       >
-        <button>❌</button>
+        <button onClick={handleDeleteImage}>❌</button>
       </Resizable>
     </Draggable>
   );
