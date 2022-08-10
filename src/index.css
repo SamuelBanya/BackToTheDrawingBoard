@@ -67,3 +67,7 @@ code {
 .Tagbar {
   text-align: center;
 }
+
+.imgClass {
+  border: 5px solid red;
+}
