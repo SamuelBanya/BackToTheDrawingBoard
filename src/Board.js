@@ -18,6 +18,8 @@ function Board() {
       });
   }, []);
 
+  // TODO: Figure out why the 'Photo' component is actually created
+
   return (
     <div>
       {photos.forEach((photo) => {

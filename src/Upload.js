@@ -59,21 +59,25 @@ function Upload() {
   });
 
   return (
-    <div>
-      <h2>Upload</h2>
+    <div className="App light">
+      <h2>Upload Image To Board</h2>
       <form onSubmit={handleSubmit}>
-        <input
-          name="photoNameUpload"
-          type="text"
-          onChange={handlePhotoNameChange}
-          value={photoName}
-        />
-        <input
-          name="photoLinkUpload"
-          type="text"
-          onChange={handlePhotoLinkChange}
-          value={photoLink}
-        />
+        <div class="form-group">
+          <label for="photoNameUpload">Name: </label>
+          <input
+            name="photoNameUpload"
+            type="text"
+            onChange={handlePhotoNameChange}
+            value={photoName}
+          />
+          <label for="photoLinkUpload"> Link: </label>
+          <input
+            name="photoLinkUpload"
+            type="text"
+            onChange={handlePhotoLinkChange}
+            value={photoLink}
+          />
+        </div>
         <button type="submit">Upload</button>
       </form>
       {errors.length > 0
@@ -83,7 +87,7 @@ function Upload() {
             </p>
           ))
         : null}
-      <h3>Submissions</h3>
+      <h3>Recent Submissions Below: </h3>
       {listOfSubmissions}
     </div>
   );

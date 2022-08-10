@@ -2,7 +2,7 @@ import React from "react";
 
 function About() {
   return (
-    <div>
+    <div className="App light">
       <h2>About Page</h2>
       <p>
         This web app allows a user to upload drawing image reference photos so

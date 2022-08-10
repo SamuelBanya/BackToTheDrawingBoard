@@ -367,3 +367,12 @@ I then figured out I could also print these to console with these two statements
 <2022-08-06 Sat 16:26>: I based the idea to change the CSS of the page itself with the related Grocery Store list app we made a while back which incorporates a 'Dark' and 'Light' mode:
 - https://learning.flatironschool.com/courses/5285/assignments/172504?module_item_id=376329
 - https://github.com/SamuelBanya/react-hooks-state-and-events-lab
+
+<2022-08-09 Tue 20:30>: That specific example utilizes the 'App.js' as the parent component to have the decisions brought up to it.
+
+I am still struggling with how to pass up the 'appClass' prop so that the 'Theme' component could ultimately change each of the individual page components which include the following:
+- About
+- Upload
+- Board
+
+For the time being as a workaround, I used 'App light' as the value for the 'className' attribute for each of the components mentioned above.

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 // Based upon this lab:
 // https://github.com/SamuelBanya/react-hooks-state-and-events-lab
 
+// function Theme({ appClass }) {
 function Theme() {
   const [theme, setTheme] = useState("");
 
