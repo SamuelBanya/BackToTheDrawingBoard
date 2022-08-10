@@ -376,3 +376,37 @@ I am still struggling with how to pass up the 'appClass' prop so that the 'Theme
 - Board
 
 For the time being as a workaround, I used 'App light' as the value for the 'className' attribute for each of the components mentioned above.
+** How I Was Able To Change The App's Header Font To 'Back To The Future' Styled Font
+<2022-08-09 Tue 21:07>: I referenced this Digital Ocean article on how to actually do this:
+- https://www.digitalocean.com/community/tutorials/how-to-load-and-use-custom-fonts-with-css
+
+I basically downloaded the font from a related font site:
+- https://www.dafont.com/back-to-the-future.font
+
+I then unzipped the contents of the related zip file, and placed the 'BTTF.tff' font file within the 'src' directory of my project.
+
+I then made the following changes to the 'index.css' Stylesheet accordingly to include a reference to the '@font-face' CSS variable:
+#+begin_src css
+/* Loading custom 'Back To The Future' Font: */
+@font-face {
+  font-family: "Back To The Future";
+  src: url("BTTF.ttf");
+}
+#+end_src
+
+I then added a section for the 'AppHeader' class itself in the same 'index.css' stylesheet:
+#+begin_src css
+.AppHeader {
+  font-family: "Back to The Future";
+}
+#+end_src
+
+I then made sure to import the same stylesheet at the top of the 'NavBar.js' component:
+#+begin_src js
+import "./index.css";
+#+end_src
+
+I then applied the 'className' to the matching header, and it caused the font to successfully appear within the header of the app itself:
+#+begin_src html
+      <h1 className="AppHeader">Back & Drawing Board:</h1>
+#+end_src
