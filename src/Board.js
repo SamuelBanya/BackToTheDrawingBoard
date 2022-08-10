@@ -27,7 +27,6 @@ function Board() {
           photoName={photo["dataArray"][0]["photoName"]}
           photoLink={photo["dataArray"][0]["photoLink"]}
         />
-        <h1>❌</h1>
       </div>
     );
   });

@@ -20,7 +20,9 @@ function Photo({ photoName, photoLink }) {
           backgroundRepeat: "no-repeat",
         }}
         lockAspectRatio={true}
-      ></Resizable>
+      >
+        <button>❌</button>
+      </Resizable>
     </Draggable>
   );
 }
