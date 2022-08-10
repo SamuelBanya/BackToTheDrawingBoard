@@ -4,25 +4,23 @@ import About from "./About";
 import Upload from "./Upload";
 import Board from "./Board";
 import Theme from "./Theme";
-
-// <Route path="/theme" element={<Theme />} />
-// <Theme appClass={appClass} />
-
-// Commented section for 'App' component with 'appClass' prop:
-// <div id="root">
-
-// TODO:
-// Actually utilize the 'Theme' component's 'appClass' property so that we can
-// pass it down to each page which includes the following components:
-// - About
-// - Upload
-// - Board
+import React, { useState } from "react";
 
 function App() {
+  const [theme, setTheme] = useState("");
+
+  function handleTheme(event) {
+    console.log("event.target.value: ", event.target.value);
+    setTheme(event.target.value);
+  }
+
+  // Set the theme to 'App light' to light mode by default:
+  setTheme("App light");
+
   return (
-    <div id="root">
+    <div id="root" className={theme}>
       <NavBar />
-      <Theme />
+      <Theme setTheme={handleTheme} />
       <Routes>
         <Route path="/" element={<About />} />
         <Route path="/upload" element={<Upload />} />
