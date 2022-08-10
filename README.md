@@ -1,19 +1,19 @@
 
 # Table of Contents
 
-1.  [BackToTheDrawingBoard](#org94eaa66)
-2.  [Goals](#orgd3cde97)
-3.  [References](#orgdc6b3a8)
+1.  [BackToTheDrawingBoard](#org4914f8f)
+2.  [Goals](#org91b5a28)
+3.  [References](#orga32a553)
 
 
-<a id="org94eaa66"></a>
+<a id="org4914f8f"></a>
 
 # BackToTheDrawingBoard
 
 70's and 80's inspired comic book artist style drawing board web app that allows you to upload images to use as image references for creating art
 
 
-<a id="orgd3cde97"></a>
+<a id="org91b5a28"></a>
 
 # Goals
 
@@ -21,10 +21,9 @@ The main goals of this project include the following:
 
 -   Uploading art reference images
 -   Resizing images
--   Tagging images
 
 
-<a id="orgdc6b3a8"></a>
+<a id="orga32a553"></a>
 
 # References
 
