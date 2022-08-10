@@ -14,9 +14,6 @@ function App() {
     setTheme(event.target.value);
   }
 
-  // Set the theme to 'App light' to light mode by default:
-  setTheme("App light");
-
   return (
     <div id="root" className={theme}>
       <NavBar />
