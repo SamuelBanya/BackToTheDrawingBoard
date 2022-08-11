@@ -2,8 +2,6 @@ import React from "react";
 import Draggable from "react-draggable";
 import { Resizable } from "re-resizable";
 
-// TODO: Need to pass in a props called 'onDeletePhoto' up to Board
-// function Photo({ photoName, photoLink, onDeletePhoto }) {
 function Photo({ photoName, photoLink, id, onDeletePhoto }) {
   console.log("photoName (from Photo component): ", photoName);
   console.log("photoLink (from Photo component): ", photoLink);

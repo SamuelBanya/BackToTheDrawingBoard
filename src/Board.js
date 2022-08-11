@@ -27,10 +27,6 @@ function Board() {
       });
   }, [photos]);
 
-  // TODO:
-  // Use 'probe-image-size' library to determine width and height of the image the user passed in:
-  // https://github.com/nodeca/probe-image-size
-
   const photoToDisplay = photos.map((photo) => {
     return (
       <div>

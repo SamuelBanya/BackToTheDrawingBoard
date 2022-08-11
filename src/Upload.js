@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+const url = require("url");
+const http = require("http");
+const sizeOf = require("image-size");
 
 function Upload() {
   const [photoName, setPhotoName] = useState("");
@@ -20,6 +23,26 @@ function Upload() {
     event.preventDefault();
 
     if (photoName.length > 0) {
+      // TODO:
+      // Use 'probe-image-size' library to determine width and height of the image the user passed in
+      // Then, add a 'width' and 'height' key value to the 'formData' variable so that the
+      // values are then added back to 'db.json' accordingly:
+      // https://github.com/nodeca/probe-image-size
+      const options = url.parse(photoLink);
+
+      // 'http.get()' request so that I can obtain the image itself:
+      http.get(options, function (response) {
+        const chunks = [];
+        response
+          .on("data", function (chunk) {
+            chunks.push(chunk);
+          })
+          .on("end", function () {
+            const buffer = Buffer.concat(chunks);
+            console.log(sizeOf(buffer));
+          });
+      });
+
       const formData = { photoName: photoName, photoLink: photoLink };
       const dataArray = [...submittedData, formData];
       setSubmittedData(dataArray);
@@ -27,10 +50,7 @@ function Upload() {
       setPhotoLink("");
       setErrors([]);
       console.log("handleSubmit() called");
-      // Make a fetch() request for 'my-json-server.tripcode.com' version of the repo:
-      // Use this lab as a reference:
-      // /Users/samuelbanya/hub/Development/code/phase-2/react-hooks-fetch-crud-code-along/src/components:
-      // https://learning.flatironschool.com/courses/5285/assignments/172474?module_item_id=376381
+
       console.log("dataArray (before fetch() call): ", dataArray);
       fetch("http://localhost:3000/photos", {
         method: "POST",
@@ -46,7 +66,7 @@ function Upload() {
           console.log("response (from fetch request): ", response);
         });
     } else {
-      setErrors(["Name is required!"]);
+      setErrors(["Name of photo is required!"]);
     }
   }
 
