@@ -515,3 +515,79 @@ I then applied the 'className' to the matching header, and it caused the font to
 #+end_src
 ** How I Was Able To Add A Red Border Around Each Image
 <2022-08-10 Wed 19:33>: I was able to add the className="imgClass" attribute value to 'Photo.js', which then corresponded to the 'imgClass' related CSS style class I had made earlier within 'index.css'
+** How I Was Able To Add Delete Functionality For Each Image
+<2022-08-11 Thu 18:31>: After a bit of research, I was able to determine how to delete photos from 'db.json' by using the following workflow.
+
+Inside the parent 'Board.js' component, I made sure that I passed down the 'id' value from the 'photo["id"]' result to the child 'Photo.js' component as an attribute to '<Photo>' itself.
+
+Within the 'Photo.js' child component, I then set an 'id' attribute to the 'props' based 'id' value I sent down to the individual '<Resizable>' component in the return statement:
+#+begin_src js
+  return (
+    <Draggable>
+      <Resizable
+        id={id}
+        className="imgClass"
+        defaultSize={{
+          width: 200,
+          height: 360,
+        }}
+        style={{
+          background: `url(${photoLink})`,
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+        }}
+        lockAspectRatio={true}
+      >
+        <button onClick={handleDeletePhoto}>❌</button>
+      </Resizable>
+    </Draggable>
+  );
+#+end_src
+
+Then, I created a callback function within the 'Photo.js' child component called 'handleDeletePhoto' which made a fetch() request using the 'id' value I had passed down to delete it from 'db.json':
+#+begin_src js
+  function handleDeletePhoto(e) {
+    console.log("handleDeleteImage() function called");
+    console.log("e: ", e);
+    let id = e.target.parentElement["id"];
+
+    fetch(`http://localhost:3000/photos/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then(() => {
+        console.log("Delete request success!");
+        onDeletePhoto(id);
+      });
+  }
+#+end_src
+
+If you notice closely for the statement above, the very last section calls 'onDeletePhoto' which is a callback function present within the parent, 'Board.js' component.
+
+Within the parent 'Board.js' component, I then utilized its own local version of this same function called 'handleDeletePhoto' which then basically filtered the 'photos' array with an appropriate .filter() accordingly so that all items EXCEPT the deleted photo are set to the 'photos' set variable:
+#+begin_src js
+  function handleDeletePhoto(id) {
+    const updatedPhotosArray = photos.filter((photo) => photo.id !== id);
+    console.log(
+      "updatedPhotosArray from handleDeletePhoto() function: ",
+      updatedPhotosArray
+    );
+    setPhotos(updatedPhotosArray);
+  }
+#+end_src
+
+Finally, I made sure that the 'useEffect' block within the 'Board.js' component actually updates with the correct 'photos' array as the second argument to 'useEffect':
+#+begin_src js
+  useEffect(() => {
+    fetch("http://localhost:3000/photos", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setPhotos(data);
+      });
+  }, [photos]);
+#+end_src
