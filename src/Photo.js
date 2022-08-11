@@ -4,36 +4,29 @@ import { Resizable } from "re-resizable";
 
 // TODO: Need to pass in a props called 'onDeletePhoto' up to Board
 // function Photo({ photoName, photoLink, onDeletePhoto }) {
-function Photo({ photoName, photoLink }) {
+function Photo({ photoName, photoLink, id, onDeletePhoto }) {
   console.log("photoName (from Photo component): ", photoName);
   console.log("photoLink (from Photo component): ", photoLink);
 
-  // TODO:
-  // Need to model this behavior after 'ListingCard.js' and 'ListingsContainer.js'
-  // in 'GregsList' lab:
-  // https://github.com/samuelbanya/react-hooks-mock-code-challenge-gregslist
-  // 'ListingCard.js' Component:
-  // https://github.com/SamuelBanya/react-hooks-mock-code-challenge-gregslist/blob/master/src/components/ListingCard.js
-  // 'ListingsContainer.js' Component:
-  // https://github.com/SamuelBanya/react-hooks-mock-code-challenge-gregslist/blob/master/src/components/ListingsContainer.js
-
   function handleDeletePhoto(e) {
     console.log("handleDeleteImage() function called");
-    console.log("e.target.value: ", e.target.value);
     console.log("e: ", e);
-    // fetch(`http://localhost:3000/photos/${id}`, {
-    // method: "DELETE",
-    // })
-    // .then((response) => response.json())
-    // .then(() => {
-    // console.log("Delete request success!");
-    // onDeletePhoto(id);
-    // });
+    let id = e.target.parentElement["id"];
+
+    fetch(`http://localhost:3000/photos/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then(() => {
+        console.log("Delete request success!");
+        onDeletePhoto(id);
+      });
   }
 
   return (
     <Draggable>
       <Resizable
+        id={id}
         className="imgClass"
         defaultSize={{
           width: 200,
