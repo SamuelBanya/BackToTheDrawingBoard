@@ -5,9 +5,9 @@ import React from "react";
 
 function Theme({ setTheme }) {
   return (
-    <div>
-      <h2>Theme</h2>
-      <h3>Change the theme of the page:</h3>
+    <div className="Theme">
+      <h3>Theme</h3>
+      <p>Change the theme of the page:</p>
       <label htmlFor="themeSelect">Choose a theme:</label>
       <select onChange={setTheme} id="themeSelect" name="themeSelect">
         <option value="App light">Light</option>

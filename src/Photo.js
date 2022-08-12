@@ -3,12 +3,7 @@ import Draggable from "react-draggable";
 import { Resizable } from "re-resizable";
 
 function Photo({ photoName, photoLink, id, onDeletePhoto }) {
-  console.log("photoName (from Photo component): ", photoName);
-  console.log("photoLink (from Photo component): ", photoLink);
-
   function handleDeletePhoto(e) {
-    console.log("handleDeleteImage() function called");
-    console.log("e: ", e);
     let id = e.target.parentElement["id"];
 
     fetch(`http://localhost:3000/photos/${id}`, {

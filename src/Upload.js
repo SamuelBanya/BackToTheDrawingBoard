@@ -7,12 +7,10 @@ function Upload() {
   const [errors, setErrors] = useState([]);
 
   function handlePhotoNameChange(event) {
-    console.log("handlePhotoNameChange");
     setPhotoName(event.target.value);
   }
 
   function handlePhotoLinkChange(event) {
-    console.log("handlePhotoLinkChange");
     setPhotoLink(event.target.value);
   }
 
@@ -26,9 +24,7 @@ function Upload() {
       setPhotoName("");
       setPhotoLink("");
       setErrors([]);
-      console.log("handleSubmit() called");
 
-      console.log("dataArray (before fetch() call): ", dataArray);
       fetch("http://localhost:3000/photos", {
         method: "POST",
         headers: {
@@ -75,7 +71,10 @@ function Upload() {
             value={photoLink}
           />
         </div>
-        <button type="submit">Upload</button>
+        <br />
+        <button className="UploadButton" type="submit">
+          Upload
+        </button>
       </form>
       {errors.length > 0
         ? errors.map((error, index) => (

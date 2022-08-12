@@ -10,7 +10,6 @@ function App() {
   const [theme, setTheme] = useState("");
 
   function handleTheme(event) {
-    console.log("event.target.value: ", event.target.value);
     setTheme(event.target.value);
   }
 

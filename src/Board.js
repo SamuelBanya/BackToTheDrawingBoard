@@ -7,10 +7,6 @@ function Board() {
 
   function handleDeletePhoto(id) {
     const updatedPhotosArray = photos.filter((photo) => photo.id !== id);
-    console.log(
-      "updatedPhotosArray from handleDeletePhoto() function: ",
-      updatedPhotosArray
-    );
     setPhotos(updatedPhotosArray);
   }
 
