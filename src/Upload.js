@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-const url = require("url");
-const http = require("http");
-const sizeOf = require("image-size");
 
 function Upload() {
   const [photoName, setPhotoName] = useState("");
@@ -23,26 +20,6 @@ function Upload() {
     event.preventDefault();
 
     if (photoName.length > 0) {
-      // TODO:
-      // Use 'probe-image-size' library to determine width and height of the image the user passed in
-      // Then, add a 'width' and 'height' key value to the 'formData' variable so that the
-      // values are then added back to 'db.json' accordingly:
-      // https://github.com/nodeca/probe-image-size
-      const options = url.parse(photoLink);
-
-      // 'http.get()' request so that I can obtain the image itself:
-      http.get(options, function (response) {
-        const chunks = [];
-        response
-          .on("data", function (chunk) {
-            chunks.push(chunk);
-          })
-          .on("end", function () {
-            const buffer = Buffer.concat(chunks);
-            console.log(sizeOf(buffer));
-          });
-      });
-
       const formData = { photoName: photoName, photoLink: photoLink };
       const dataArray = [...submittedData, formData];
       setSubmittedData(dataArray);

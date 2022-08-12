@@ -27,8 +27,8 @@ function Photo({ photoName, photoLink, id, onDeletePhoto }) {
         id={id}
         className="imgClass"
         defaultSize={{
-          width: 200,
-          height: 360,
+          width: 100,
+          height: 100,
         }}
         style={{
           background: `url(${photoLink})`,
