@@ -623,3 +623,7 @@ I then used this command to open the heroku app itself:
 #+begin_src bash
 heroku open
 #+end_src
+
+NOTE:
+- Continue here so that I can figure out how to deploy the app locally vs differently on the 'heroku' branch:
+- https://devcenter.heroku.com/articles/getting-started-with-nodejs#deploy-the-app
