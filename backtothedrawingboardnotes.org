@@ -591,3 +591,35 @@ Finally, I made sure that the 'useEffect' block within the 'Board.js' component 
       });
   }, [photos]);
 #+end_src
+** How I Deployed The Project To 'Heroku'
+<2022-08-12 Fri 22:50>: I followed this guide:
+- https://devcenter.heroku.com/articles/getting-started-with-nodejs#deploy-the-app
+
+I then proceeded to install Heroku via 'brew':
+#+begin_src bash
+brew tap heroku/brew
+brew install heroku
+#+end_src
+
+I then proceeded to use the 'heroku create' command so that it would create a corresponding branch in the existing project's Git repo:
+#+begin_src bash
+samuelbanya@Samuels-MBP ~/hub/Development/code/phase-2/BackToTheDrawingBoard $ heroku create
+Creating app... done, ⬢ morning-garden-25246
+https://morning-garden-25246.herokuapp.com/ | https://git.heroku.com/morning-garden-25246.git
+#+end_src
+
+I then pushed the project to heroku with this command:
+#+begin_src bash
+git push heroku main
+#+end_src
+
+I then checked the status of the heroku app itself with this command:
+#+begin_src bash
+samuelbanya@Samuels-MBP ~/hub/Development/code/phase-2/BackToTheDrawingBoard $ heroku ps:scale web=1
+Scaling dynos... done, now running web at 1:Free
+#+end_src
+
+I then used this command to open the heroku app itself:
+#+begin_src bash
+heroku open
+#+end_src
