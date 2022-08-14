@@ -6,7 +6,7 @@ function Photo({ photoName, photoLink, id, onDeletePhoto }) {
   function handleDeletePhoto(e) {
     let id = e.target.parentElement["id"];
 
-    fetch(`http://localhost:3000/photos/${id}`, {
+    fetch(`https://drawingboardjsonserver.herokuapp.com/photos/${id}`, {
       method: "DELETE",
     })
       .then((response) => response.json())

@@ -25,7 +25,7 @@ function Upload() {
       setPhotoLink("");
       setErrors([]);
 
-      fetch("http://localhost:3000/photos", {
+      fetch("https://drawingboardjsonserver.herokuapp.com/photos", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

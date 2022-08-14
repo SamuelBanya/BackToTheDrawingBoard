@@ -11,7 +11,7 @@ function Board() {
   }
 
   useEffect(() => {
-    fetch("http://localhost:3000/photos", {
+    fetch("https://drawingboardjsonserver.herokuapp.com/photos", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

@@ -627,3 +627,51 @@ heroku open
 NOTE:
 - Continue here so that I can figure out how to deploy the app locally vs differently on the 'heroku' branch:
 - https://devcenter.heroku.com/articles/getting-started-with-nodejs#deploy-the-app
+
+<2022-08-13 Sat 21:02>: I did some research and found this package that allows you deploy 'json-server-heroku' to the project itself:
+- https://github.com/SamuelBanya/json-server-heroku
+
+<2022-08-13 Sat 21:27>: I then utilized this guide:
+- https://github.com/jesperorb/json-server-heroku
+
+This method of Heroku deployment involves two separate repos:
+- One repo that contains your main project's frontend
+- The other repo that only contains the 'db.json' for the 'backend' for the project
+
+I then forked the repo above, and made my own forked copy called 'BackToTheDrawingBoardJsonServer'
+- https://github.com/SamuelBanya/BackToTheDrawingBoardJsonServer
+
+I git cloned it to my local machine and modified the 'db.json' accordingly to fit my project's needs:
+#+begin_src js
+{
+  "photos": [
+  ]
+}
+#+end_src
+
+I then proceeded to navigate to the same directory's project in a new terminal:
+#+begin_src bash
+samuelbanya@Samuels-MBP ~/hub/Development/code/phase-2/BackToTheDrawingBoardJsonServer $ pwd
+/Users/samuelbanya/hub/Development/code/phase-2/BackToTheDrawingBoardJsonServer
+
+samuelbanya@Samuels-MBP ~/hub/Development/code/phase-2/BackToTheDrawingBoardJsonServer $ ls
+README.md       db.json         package.json    server.js       yarn.lock
+#+end_src
+
+I then used the 'heroku create' command to create a new heroku app from the same project's folder:
+#+begin_src bash
+samuelbanya@Samuels-MBP ~/hub/Development/code/phase-2/BackToTheDrawingBoardJsonServer $ heroku create drawingboardjsonserver
+#+end_src
+
+I then pushed the same heroku app to the master branch:
+#+begin_src bash
+samuelbanya@Samuels-MBP ~/hub/Development/code/phase-2/BackToTheDrawingBoardJsonServer $ git push heroku master
+#+end_src
+
+I then used the 'heroku open' command:
+#+begin_src bash
+samuelbanya@Samuels-MBP ~/hub/Development/code/phase-2/BackToTheDrawingBoardJsonServer $ heroku open
+#+end_src
+
+This opened the running 'json-server' instance in a new browser tab:
+- https://drawingboardjsonserver.herokuapp.com/
