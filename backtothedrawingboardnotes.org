@@ -675,3 +675,64 @@ samuelbanya@Samuels-MBP ~/hub/Development/code/phase-2/BackToTheDrawingBoardJson
 
 This opened the running 'json-server' instance in a new browser tab:
 - https://drawingboardjsonserver.herokuapp.com/
+
+<2022-08-13 Sat 22:30>: I then modified each of the fetch() requests to point to the Heroku app's actual API endpoint instead:
+
+Example from 'Board.js' that was modified accordingly:
+#+begin_src js
+  useEffect(() => {
+    fetch("https://drawingboardjsonserver.herokuapp.com/photos", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        setPhotos(data);
+      });
+  }, [photos]);
+#+end_src
+
+Modified 'Upload.js':
+#+begin_src js
+      fetch("https://drawingboardjsonserver.herokuapp.com/photos", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          dataArray: dataArray,
+        }),
+      })
+        .then((response) => response.json())
+        .then((response) => {
+          console.log("response (from fetch request): ", response);
+        });
+    } else {
+      setErrors(["Name of photo is required!"]);
+    }
+#+end_src
+
+Modified 'Photo.js' fetch() request:
+#+begin_src js
+    fetch(`https://drawingboardjsonserver.herokuapp.com/photos/${id}`, {
+      method: "DELETE",
+    })
+      .then((response) => response.json())
+      .then(() => {
+        console.log("Delete request success!");
+        onDeletePhoto(id);
+      });
+#+end_src
+
+End result of my Phase 2 Project:
+- Live site on Netlify, which I basically just pointed the main GitHub repo to:
+- https://backtothedrawingboard.netlify.app/board
+- Related repos:
+- Frontend, deployed to ‘Netlify’:
+- https://github.com/SamuelBanya/BackToTheDrawingBoard
+- Backend for ‘json-server’, deployed to ‘Heroku’:
+- https://github.com/SamuelBanya/BackToTheDrawingBoardJsonServer
+- Heroku portion of ‘json-server’:
+- https://drawingboardjsonserver.herokuapp.com/
