@@ -6,6 +6,20 @@ The main goals of this project include the following:
 - Uploading art reference images
 - Resizing images
 
+* Related Repos
+The project's main repo exists here:
+- https://github.com/SamuelBanya/BackToTheDrawingBoard
+
+The project's 'json-server' backend repo that runs on a related Heroku instance can be found here:
+- https://github.com/SamuelBanya/BackToTheDrawingBoardJsonServer
+
+* Demo
+This project is live on a Netlify related instance here:
+- https://backtothedrawingboard.netlify.app/board
+
+Its 'json-server' backend can be found on a Heroku instance here:
+- https://drawingboardjsonserver.herokuapp.com/
+
 * References
 Here are there references I utilized while making this project:
 - This app was used for the idea to utilize both 'Draggable' and 'Re-resizable' components to achieve the goals I had for this particular project:
