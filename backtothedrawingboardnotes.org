@@ -736,3 +736,11 @@ End result of my Phase 2 Project:
 - https://github.com/SamuelBanya/BackToTheDrawingBoardJsonServer
 - Heroku portion of ‘json-server’:
 - https://drawingboardjsonserver.herokuapp.com/
+
+** Notes Of How To Improve The Project
+<2022-08-25 Thu 20:04>: These are some notes I have after my recent project review for the Phase 2 project assessment:
+- In the 'Board.js' component, modify the 'handleDeletePhoto' function to use the integer version of the 'id' since we're using a string by accident
+- Delete id section aka Line 7 from 'Photo.js':
+#+begin_src bash
+let id = e.target.parentElement["id"];
+#+end_src
