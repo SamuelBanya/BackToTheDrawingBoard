@@ -13,12 +13,12 @@ function Board() {
   useEffect(() => {
     fetch("https://backtothedrawingboardjsonserver.onrender.com/photos", {
       method: "GET",
-          headers: {
-            "Content-Type": "application/json",
+        headers: {
+              "Content-Type": "application/json",
           },
-    })
-      .then((response) => response.json())
-      .then((data) => {
+      })
+          .then((response) => response.json())
+          .then((data) => {
         setPhotos(data);
       });
   }, [photos]);
