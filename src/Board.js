@@ -11,11 +11,11 @@ function Board() {
   }
 
   useEffect(() => {
-    fetch("https://drawingboardjsonserver.herokuapp.com/photos", {
+    fetch("https://backtothedrawingboardjsonserver.onrender.com/photos", {
       method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
+          headers: {
+            "Content-Type": "application/json",
+          },
     })
       .then((response) => response.json())
       .then((data) => {

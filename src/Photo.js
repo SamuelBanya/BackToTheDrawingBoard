@@ -6,7 +6,7 @@ function Photo({ photoName, photoLink, id, onDeletePhoto }) {
   function handleDeletePhoto(e) {
     let id = e.target.parentElement["id"];
 
-    fetch(`https://drawingboardjsonserver.herokuapp.com/photos/${id}`, {
+    fetch(`https://backtothedrawingboardjsonserver.onrender.com/photos/${id}`, {
       method: "DELETE",
     })
       .then((response) => response.json())

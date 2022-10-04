@@ -4,6 +4,7 @@ import About from "./About";
 import Upload from "./Upload";
 import Board from "./Board";
 import Theme from "./Theme";
+import Challenge from "./Challenge";
 import React, { useState, useEffect } from "react";
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
         <Route path="/" element={<About />} />
         <Route path="/upload" element={<Upload />} />
         <Route path="/board" element={<Board />} />
+        <Route path="/challenge" element={<Challenge />} />
       </Routes>
     </div>
   );

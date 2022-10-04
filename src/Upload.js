@@ -25,18 +25,18 @@ function Upload() {
       setPhotoLink("");
       setErrors([]);
 
-      fetch("https://drawingboardjsonserver.herokuapp.com/photos", {
+      fetch("https://backtothedrawingboardjsonserver.onrender.com/photos", {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          dataArray: dataArray,
-        }),
-      })
-        .then((response) => response.json())
-        .then((response) => {
-          console.log("response (from fetch request): ", response);
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            dataArray: dataArray,
+          }),
+        })
+            .then((response) => response.json())
+            .then((response) => {
+            console.log("response (from fetch request): ", response);
         });
     } else {
       setErrors(["Name of photo is required!"]);
