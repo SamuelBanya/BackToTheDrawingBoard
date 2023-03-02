@@ -15,7 +15,7 @@ The project's 'json-server' backend repo that runs on a related Heroku instance 
 
 * Demo
 This project is live on a Netlify related instance here:
-- https://backtothedrawingboard.netlify.app/board
+- https://backtothedrawingboard.netlify.app
 
 Its 'json-server' backend can be found on a Heroku instance here:
 - https://drawingboardjsonserver.herokuapp.com/
