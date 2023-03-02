@@ -79,6 +79,13 @@ code {
   transition: all 0.3s;
 }
 
+.App.nintendo {
+  --font-color: rgb(255, 0, 0);
+  --background: rgb(37, 38, 37);
+  --background--light: rgb(80, 80, 80);
+  transition: all 0.3s;
+}
+
 .App {
   margin: 2rem auto;
   padding: 1rem 2rem;

@@ -14,6 +14,7 @@ function Theme({ setTheme }) {
         <option value="App dark">Dark</option>
         <option value="App wood">Wood</option>
         <option value="App retro">Retro</option>
+        <option value="App nintendo">Nintendo</option>
       </select>
       <br />
       <br />
